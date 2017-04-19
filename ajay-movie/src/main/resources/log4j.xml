@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+ <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+  <param name="File" value="/alog/aj_movie.log" />
+  <param name="Append" value="true" />
+  <param name="DatePattern" value="'.'yyyy-MM-dd-HH" />
+  <param name="Encoding" value="UTF-8" />
+  <layout class="org.apache.log4j.PatternLayout">
+   <!-- <param name="ConversionPattern" value="[%d{yyyy.MM.dd.HH:mm:ss.SSS}]: %p - %m %x%n" /> -->
+   <param name="ConversionPattern" value="%d{DATE} - [%t] - %C{1}.%M(%L) - %p: %m%n" />
+  </layout>
+ </appender>
+
+<!-- <logger name="org.springframework" additivity="false" >   
+     <level value="off"/>  
+   </logger> -->
+
+ <logger name="com.movie">   
+ 	<level value="ERROR,INFO" />
+ 	<appender-ref ref="file" />
+ </logger> 
+ <logger name="root">
+ 	<level value="info"/>
+ </logger>
+
+</log4j:configuration>
